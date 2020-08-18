@@ -20,18 +20,21 @@ export default class App extends Component {
         {label: 'Морские птицы', active: false, id: 6}
       ],
       data: birdsData[0],
-      isRightAnswer: true
+      isRightAnswer: true,
+      isAnswerSelect: false,
+      selectedBird: birdsData[0][0]
     }
     this.getRandomBird = this.getRandomBird.bind(this)
   }
 
   getRandomBird() {
     const randomIndex = Math.floor(Math.random() * 6);
+    console.log(this.state.selectedBird)
     return this.state.data[randomIndex];
   }
 
   render() {
-    const {questions, isRightAnswer, data} = this.state;
+    const {questions, isRightAnswer, data, isAnswerSelect, selectedBird} = this.state;
     const randomBird = this.getRandomBird();
     return (
       <div>
@@ -40,7 +43,7 @@ export default class App extends Component {
         <RandomBird randomBird={randomBird} isRightAnswer={isRightAnswer}/>
         <div>
           <AnswerList answers={data}/>
-          <Description/>
+          <Description selectedBird={selectedBird} isAnswerSelect={isAnswerSelect}/>
         </div>
         <button className="next-btn">Next</button>
       </div>
