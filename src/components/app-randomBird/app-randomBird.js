@@ -1,13 +1,14 @@
 import React from 'react'
 
-const RandomBird = () => {
+const RandomBird = ({randomBird, isRightAnswer}) => {
+  const defaultBirdUrl = 'https://www.publicdomainpictures.net/pictures/60000/nahled/bird-silhouette-blackbird.jpg'
   return (
     <div>
-      <img src='https://www.wbu.com/wp-content/uploads/2016/07/540x340-found-a-bird-450x283.jpg' alt='random-bird'/>
+      <img src={isRightAnswer ? randomBird.image : defaultBirdUrl} alt='random-bird'/>
       <div>
-        <h2>Title</h2>
+        <h2>{isRightAnswer ? randomBird.name : '******'}</h2>
         <audio controls>
-          <source src="http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3" type="audio/mpeg"/>
+          <source src={randomBird.audio} type="audio/mpeg"/>
         </audio>
       </div>
     </div>
