@@ -5,6 +5,7 @@ import QuestionList from '../app-questions'
 import RandomBird from '../app-randomBird'
 import AnswerList from '../app-answerList'
 import Description from '../app-description'
+import birdsData from '../../service/birds'
 
 export default class App extends Component {
   constructor() {
@@ -17,7 +18,8 @@ export default class App extends Component {
         {label: 'Певчие птицы', active: false, id: 4},
         {label: 'Хищные птицы', active: false, id: 5},
         {label: 'Морские птицы', active: false, id: 6}
-      ]
+      ],
+      data: birdsData
     }
   }
 
