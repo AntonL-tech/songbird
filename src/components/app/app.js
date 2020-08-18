@@ -14,10 +14,10 @@ export default class App extends Component {
     super();
     this.state = {
       questions: [
-        {label: 'Разминка', active: true, id: 1},
+        {label: 'Разминка', active: false, id: 1},
         {label: 'Воробьиные', active: false, id: 2},
         {label: 'Лесные птицы', active: false, id: 3},
-        {label: 'Певчие птицы', active: false, id: 4},
+        {label: 'Певчие птицы', active: true, id: 4},
         {label: 'Хищные птицы', active: false, id: 5},
         {label: 'Морские птицы', active: false, id: 6}
       ],
