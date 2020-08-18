@@ -1,8 +1,20 @@
 import React from 'react'
 
-const AnswerList = () =>{
+const AnswerList = ({answers}) =>{
+
+  const elements = answers.map((item) => {
+    const {name, id} = item;
+    return (
+      <li key={id} className="answer-group-item">
+        {name}
+      </li>
+    )
+  })
+
   return (
-    <div>AnswerList</div>
+    <ul className="awnswer-list">
+      {elements}
+    </ul>
   )
 }
 
