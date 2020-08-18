@@ -7,6 +7,8 @@ import AnswerList from '../app-answerList'
 import Description from '../app-description'
 import birdsData from '../../service/birds'
 
+import './app.css'
+
 export default class App extends Component {
   constructor() {
     super();
@@ -37,7 +39,7 @@ export default class App extends Component {
     const {questions, isRightAnswer, data, isAnswerSelect, selectedBird} = this.state;
     const randomBird = this.getRandomBird();
     return (
-      <div>
+      <div className="app">
         <AppHeader/>
         <QuestionList questions={questions}/>
         <RandomBird randomBird={randomBird} isRightAnswer={isRightAnswer}/>
