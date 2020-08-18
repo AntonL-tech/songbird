@@ -27,7 +27,6 @@ export default class App extends Component {
 
   getRandomBird() {
     const randomIndex = Math.floor(Math.random() * 6);
-    console.log(this.state.data)
     return this.state.data[randomIndex];
   }
 
@@ -43,6 +42,7 @@ export default class App extends Component {
           <AnswerList answers={data}/>
           <Description/>
         </div>
+        <button className="next-btn">Next</button>
       </div>
     );
   }
