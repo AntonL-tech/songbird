@@ -3,6 +3,8 @@ import React, {Component} from 'react'
 import AppHeader from '../app-header'
 import QuestionList from '../app-questions'
 import RandomBird from '../app-randomBird'
+import AnswerList from '../app-answerList'
+import Description from '../app-description'
 
 export default class App extends Component {
   constructor() {
@@ -26,6 +28,10 @@ export default class App extends Component {
         <AppHeader/>
         <QuestionList questions={questions}/>
         <RandomBird/>
+        <div>
+          <AnswerList/>
+          <Description/>
+        </div>
       </div>
     );
   }
