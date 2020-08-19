@@ -10,7 +10,7 @@
 
 .list-group-item {
   display: inline-block;
-  padding: 5px 35px;
+  padding: 5px 30px;
 }
 
 .list-group-item:nth-child(1) {

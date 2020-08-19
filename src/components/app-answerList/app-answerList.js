@@ -1,12 +1,13 @@
 import React from 'react'
 
+import './app-answerList.css'
 const AnswerList = ({answers}) =>{
 
   const elements = answers.map((item) => {
     const {name, id} = item;
     return (
       <li key={id} className="answer-group-item">
-        {name}
+        <span className="answer-indicator"></span>{name}
       </li>
     )
   })

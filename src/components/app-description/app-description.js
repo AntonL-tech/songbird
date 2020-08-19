@@ -1,23 +1,25 @@
 import React from 'react'
 
+import './app-description.css'
+
 const Description = ({selectedBird, isAnswerSelect}) =>{
 
 
   return (
-    <div className="description">
+    <div className="app-description">
       {!isAnswerSelect ? 
       <p>Послушайте плеер. <br/> Выберите птицу из списка</p> : 
-      <div>
-        <img src={selectedBird.image} alt="selected-bird"/>
+      <div className="app-description-content">
+        <img className="app-description-image" src={selectedBird.image} alt="selected-bird"/>
         <div>
-          <h2>{selectedBird.name}</h2>
-          <h3>{selectedBird.species}</h3>
+          <h2 className="app-description-name">{selectedBird.name}</h2>
+          <h3 className="app-description-species">{selectedBird.species}</h3>
           <audio controls>
             <source src={selectedBird.audio} type="audio/mpeg"/>
           </audio>
         </div>
-        <p>{selectedBird.description}</p>
       </div>}
+      <p>{selectedBird.description}</p>
     </div>
   )
 }
