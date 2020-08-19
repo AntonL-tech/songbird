@@ -1,0 +1,29 @@
+.random-bird {
+  margin: 30px 0;
+  display: flex;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  padding: 30px;
+  width: 95%;
+  background: #303030;
+}
+
+.random-bird-image {
+  width: 250px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.random-bird-content {
+  margin-left: 45px;
+  width: 100%;
+}
+
+.random-bird-title {
+  display: inline-block;
+  width: 100%;
+  font-size: 35px;
+  border-bottom: solid 1px #555;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
