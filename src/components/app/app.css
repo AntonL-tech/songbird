@@ -25,6 +25,10 @@ ul {
   justify-content: space-between;
 }
 
+.app-inner {
+  width: 100%;
+}
+
 .next-btn {
   margin-top: 30px;
   width: 100%;
