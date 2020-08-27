@@ -22,28 +22,41 @@ export default class App extends Component {
         {label: 'Морские птицы', active: false, id: 6}
       ],
       data: birdsData[0],
-      isRightAnswer: true,
-      isAnswerSelect: true,
-      selectedBird: birdsData[0][0]
+      isRightAnswer: false,
+      isAnswerSelect: false,
+      selectedBird: birdsData[0][0],
     }
-    this.getRandomBird = this.getRandomBird.bind(this)
+    this.selectBird = this.selectBird.bind(this)
   }
 
-  getRandomBird() {
+  componentWillMount() {
     const randomIndex = Math.floor(Math.random() * 6);
-    return this.state.data[randomIndex];
+    this.setState({randomBird: this.state.data[randomIndex]})
+  }
+
+
+  selectBird(event) {
+    const bird = this.state.data.filter(item => event.target.textContent === item.name)
+    this.setState({
+      selectedBird: bird[0],
+      isAnswerSelect: true
+    })
+    if (event.target.textContent === this.state.randomBird.name) {
+      this.setState({isRightAnswer: true})
+    } else {
+      console.log('No')
+    }
   }
 
   render() {
-    const {questions, isRightAnswer, data, isAnswerSelect, selectedBird} = this.state;
-    const randomBird = this.getRandomBird();
+    const {questions, isRightAnswer, data, isAnswerSelect, selectedBird, randomBird} = this.state;
     return (
       <div className="app">
         <AppHeader/>
         <QuestionList questions={questions}/>
         <RandomBird randomBird={randomBird} isRightAnswer={isRightAnswer}/>
         <div className="app-content">
-          <AnswerList answers={data}/>
+          <AnswerList answers={data} selectBird={this.selectBird}/>
           <Description selectedBird={selectedBird} isAnswerSelect={isAnswerSelect}/>
         </div>
         <button className="next-btn">Next level</button>

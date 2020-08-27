@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Controls from '../app-audio/Controls'
 import './app-randomBird.css'
 
 const RandomBird = ({randomBird, isRightAnswer}) => {
@@ -9,9 +9,7 @@ const RandomBird = ({randomBird, isRightAnswer}) => {
       <img className="random-bird-image" src={isRightAnswer ? randomBird.image : defaultBirdUrl} alt="random-bird"/>
       <div className="random-bird-content">
         <h2 className="random-bird-title">{isRightAnswer ? randomBird.name : '******'}</h2>
-        <audio controls>
-          <source src={randomBird.audio} type="audio/mpeg"/>
-        </audio>
+        <Controls audio={randomBird.audio}/>
       </div>
     </div>
   )
