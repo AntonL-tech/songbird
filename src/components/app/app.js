@@ -37,16 +37,28 @@ export default class App extends Component {
 
   selectBird(event) {
     const bird = this.state.data.filter(item => event.target.textContent === item.name)
+
     this.setState({
       selectedBird: bird[0],
       isAnswerSelect: true
     })
-    if (event.target.textContent === this.state.randomBird.name) {
+
+    if (event.target.textContent === this.state.randomBird.name && !this.state.isRightAnswer) {
+      event.target.querySelector('span').classList.add('green')
+      this.play(process.env.PUBLIC_URL + '/sounds/win.mp3')
       this.setState({isRightAnswer: true})
-    } else {
-      console.log('No')
+    } else if (!this.state.isRightAnswer) {
+      event.target.querySelector('span').classList.add('red')
+      this.play(process.env.PUBLIC_URL + '/sounds/no.mp3')
     }
   }
+
+  play = (path) => {
+    var audio = new Audio(path);
+    audio.volume = .3;
+    audio.play();
+  }
+
 
   render() {
     const {questions, isRightAnswer, data, isAnswerSelect, selectedBird, randomBird} = this.state;
@@ -56,10 +68,10 @@ export default class App extends Component {
         <QuestionList questions={questions}/>
         <RandomBird randomBird={randomBird} isRightAnswer={isRightAnswer}/>
         <div className="app-content">
-          <AnswerList answers={data} selectBird={this.selectBird}/>
+          <AnswerList answers={data} selectBird={this.selectBird} isRightAnswer={isRightAnswer}/>
           <Description selectedBird={selectedBird} isAnswerSelect={isAnswerSelect}/>
         </div>
-        <button className="next-btn">Next level</button>
+        <button className={isRightAnswer ? 'next-btn-active' : 'next-btn'}>Next level</button>
       </div>
     );
   }

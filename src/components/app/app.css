@@ -35,3 +35,15 @@ ul {
   border-radius: 5px;
   font-size: 20px;
 }
+
+.next-btn-active {
+  margin-top: 30px;
+  width: 100%;
+  background: #008966;
+  border: solid 1px #cccccc;
+  padding: 10px;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}

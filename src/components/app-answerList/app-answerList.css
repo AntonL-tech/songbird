@@ -32,3 +32,11 @@
   transition: all .2s ease-in;
   background-color: #444;
 }
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: #008966;
+}
