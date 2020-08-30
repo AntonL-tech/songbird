@@ -8,6 +8,7 @@ import Description from '../app-description'
 import birdsData from '../../service/birds'
 
 import './app.css'
+import FinalMessage from '../app-finalMessage'
 
 export default class App extends Component {
   constructor() {
@@ -93,18 +94,39 @@ export default class App extends Component {
         item.active = true;
       }
     })
+  }
 
+  restartGame = () => {
+    this.setState({
+      questions: [
+        {label: 'Разминка', active: true, id: 0},
+        {label: 'Воробьиные', active: false, id: 1},
+        {label: 'Лесные птицы', active: false, id: 2},
+        {label: 'Певчие птицы', active: false, id: 3},
+        {label: 'Хищные птицы', active: false, id: 4},
+        {label: 'Морские птицы', active: false, id: 5}
+      ],
+      current: 0,
+      score: 0,
+      data: birdsData[0],
+      isRightAnswer: false,
+      isAnswerSelect: false,
+      selectedBird: birdsData[0][0],
+      mistake: 0,
+      randomBird: birdsData[0][this.state.randomIndex]
+    })  
   }
 
 
   render() {
     const {questions, isRightAnswer, data, isAnswerSelect, selectedBird, randomBird, score} = this.state;
+    console.log(this.state.randomBird.name)
     return (
       <div className="app">
         <AppHeader score={score}/>
         <QuestionList questions={questions}/>
         {this.state.current === 6 ? 
-        <h1>Hello World</h1> :
+        <FinalMessage score={score} restartGame={this.restartGame}/> :
         <div className="app-inner"> 
         <RandomBird randomBird={randomBird} isRightAnswer={isRightAnswer}/>
         <div className="app-content">
