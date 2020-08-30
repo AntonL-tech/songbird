@@ -22,11 +22,13 @@ export default class App extends Component {
         {label: 'Морские птицы', active: false, id: 5}
       ],
       current: 0,
+      score: 0,
       data: birdsData[0],
       isRightAnswer: false,
       isAnswerSelect: false,
       selectedBird: birdsData[0][0],
-      randomIndex: null
+      randomIndex: null,
+      mistake: 0
     }
     this.selectBird = this.selectBird.bind(this)
   }
@@ -53,12 +55,17 @@ export default class App extends Component {
       const randomIndex = Math.floor(Math.random() * 6);
       this.setState({
         randomIndex: randomIndex, 
-        current: this.state.current + 1
+        current: this.state.current + 1,
+        score: this.state.score + 5 - this.state.mistake,
+        mistake: 0
       })  
 
     } else if (!this.state.isRightAnswer) {
       event.target.querySelector('span').classList.add('red')
       this.play(process.env.PUBLIC_URL + '/sounds/no.mp3')
+      this.setState({
+        mistake: this.state.mistake + 1,
+      })  
     }
   }
 
@@ -91,10 +98,10 @@ export default class App extends Component {
 
 
   render() {
-    const {questions, isRightAnswer, data, isAnswerSelect, selectedBird, randomBird} = this.state;
+    const {questions, isRightAnswer, data, isAnswerSelect, selectedBird, randomBird, score} = this.state;
     return (
       <div className="app">
-        <AppHeader/>
+        <AppHeader score={score}/>
         <QuestionList questions={questions}/>
         {this.state.current === 6 ? 
         <h1>Hello World</h1> :

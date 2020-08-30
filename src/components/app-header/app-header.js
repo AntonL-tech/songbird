@@ -2,11 +2,11 @@ import React from 'react'
 
 import './app-header.css'
 
-const AppHeader = () => {
+const AppHeader = ({score}) => {
   return (
     <div className = "app-header">
       <h1>SongBird</h1>
-      <h2>Score: 5</h2>
+      <h2>Score: {score}</h2>
     </div>
   )
 }
