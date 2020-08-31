@@ -1,0 +1,73 @@
+.app-finalMessage {
+  margin-top: 30px;
+  border: solid #fff 1px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 5px;
+  background: #303030;
+}
+
+.app-finalMessage-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-finalMessage-title {
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.app-finalMessage-subtitle {
+  font-size: 30px;
+  margin: 30px 0;
+}
+
+.app-finalMessage-btn {
+  width: 100%;
+  background: #008966;
+  border: solid 1px #cccccc;
+  padding: 10px;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all .2s linear;
+}
+
+.app-finalMessage-btn:hover {
+  background: #00bc8c;
+}
+
+
+@media (max-width:520px) {
+  .app-finalMessage {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  .app-finalMessage-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .app-finalMessage-subtitle {
+    font-size: 15px;
+    margin: 15px 0;
+  }
+
+  .app-finalMessage-gif {
+    width: 100%;
+
+  }
+
+  .app-finalMessage-btn {
+    font-size: 15px;
+  }
+
+}
